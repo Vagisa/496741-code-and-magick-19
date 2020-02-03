@@ -2,7 +2,7 @@
   "name": "code-and-magick",
   "version": "19.0.0",
   "private": true,
-  "description": "Учебный проект «Код и Магия» от HTML Academy",
+  "description": "Учебный проект «Код и Магия» от HTML Academy",
   "repository": {
     "type": "git",
     "url": "git@github.com:htmlacademy-javascript/496741-code-and-magick-19.git"
@@ -11,12 +11,8 @@
     "url": "https://github.com/htmlacademy-javascript/496741-code-and-magick-19/issues"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.18.0",
-    "@typescript-eslint/parser": "^2.18.0",
     "eslint": "6.3.0",
-    "eslint-config-htmlacademy": "0.5.2",
-    "eslint-config-rallycoding": "^3.2.0",
-    "eslint-plugin-react": "^7.18.0"
+    "eslint-config-htmlacademy": "0.5.2"
   },
   "license": "MIT",
   "dependencies": {},
