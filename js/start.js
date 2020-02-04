@@ -30,6 +30,7 @@ var getMaxElement = function (arr) {
 };
 
 window.renderStatistics = function (ctx, names, times) {
+  ctx.save();
   renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff', 'rgba(0, 0, 0, 0.7)');
   ctx.fillStyle = '#000';
   ctx.font = '16px PT Mono';
@@ -50,4 +51,5 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillRect(CLOUD_X + 5 * GAP + (TEXT_WIDTH) * i, CLOUD_HEIGHT - TEXT_HEIGHT - BAR_HEIGHT * times[i] / maxTime, BAR_WIDTH, BAR_HEIGHT * times[i] / maxTime);
     ctx.restore();
   }
+  ctx.restore();
 };
