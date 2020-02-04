@@ -11,10 +11,12 @@ var BAR_WIDTH = 50;
 var BAR_HEIGHT = CLOUD_HEIGHT / 2;
 
 var renderCloud = function (ctx, x, y, color, shadow) {
+  ctx.save();
   ctx.fillStyle = shadow;
   ctx.fillRect(x + GAP, y + GAP, CLOUD_WIDTH, CLOUD_HEIGHT);
   ctx.fillStyle = color;
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
+  ctx.restore();
 };
 
 var getMaxElement = function (arr) {
