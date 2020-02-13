@@ -10,18 +10,26 @@ userDialog.classList.remove('hidden');
 
 var similarListElement = userDialog.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
-.content
-.querySelector('.setup-similar-item');
+  .content
+  .querySelector('.setup-similar-item');
 
-var wizards = [];
-for (var j = 0; j < 4; j++) {
-  var newWizard = {
-    name: WIZARD_NAMES[Math.floor(Math.random() * WIZARD_NAMES.length)] + ' ' + WIZARD_LAST_NAMES[Math.floor(Math.random() * WIZARD_LAST_NAMES.length)],
-    coatColor: WIZARD_COAT_COLOR[Math.floor(Math.random() * WIZARD_COAT_COLOR.length)],
-    eyesColor: WIZARD_EYES_COLOR[Math.floor(Math.random() * WIZARD_EYES_COLOR.length)]
-  };
-  wizards.push(newWizard);
-}
+var selectElement = function (array) {
+  return array[Math.floor(Math.random() * array.length)];
+};
+
+var generateWizards = function () {
+  var wizards = [];
+  for (var j = 0; j < 4; j++) {
+    wizards.push(
+        {
+          name: selectElement(WIZARD_NAMES) + ' ' + selectElement(WIZARD_LAST_NAMES),
+          coatColor: selectElement(WIZARD_COAT_COLOR),
+          eyesColor: selectElement(WIZARD_EYES_COLOR)
+        }
+    );
+  }
+  return wizards;
+};
 
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
@@ -33,12 +41,18 @@ var renderWizard = function (wizard) {
   return wizardElement;
 };
 
-var fragment = document.createDocumentFragment();
+var renderAllWizards = function (wizards) {
+  var fragment = document.createDocumentFragment();
+  for (var i = 0; i < wizards.length; i++) {
+    fragment.appendChild(renderWizard(wizards[i]));
+  }
+  similarListElement.appendChild(fragment);
+};
 
-for (var i = 0; i < wizards.length; i++) {
-  fragment.appendChild(renderWizard(wizards[i]));
-}
-similarListElement.appendChild(fragment);
+var showWizardsList = function () {
+  var setupSimilar = document.querySelector('.setup-similar');
+  setupSimilar.classList.remove('hidden');
+};
 
-var setupSimilar = document.querySelector('.setup-similar');
-setupSimilar.classList.remove('hidden');
+renderAllWizards(generateWizards());
+showWizardsList();
