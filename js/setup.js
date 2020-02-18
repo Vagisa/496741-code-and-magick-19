@@ -13,7 +13,7 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
   .content
   .querySelector('.setup-similar-item');
 
-var selectElement = function (array) {
+var getRandomElement = function (array) {
   return array[Math.floor(Math.random() * array.length)];
 };
 
@@ -22,9 +22,9 @@ var generateWizards = function () {
   for (var j = 0; j < 4; j++) {
     wizards.push(
         {
-          name: selectElement(WIZARD_NAMES) + ' ' + selectElement(WIZARD_LAST_NAMES),
-          coatColor: selectElement(WIZARD_COAT_COLOR),
-          eyesColor: selectElement(WIZARD_EYES_COLOR)
+          name: getRandomElement(WIZARD_NAMES) + ' ' + getRandomElement(WIZARD_LAST_NAMES),
+          coatColor: getRandomElement(WIZARD_COAT_COLOR),
+          eyesColor: getRandomElement(WIZARD_EYES_COLOR)
         }
     );
   }
